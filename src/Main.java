@@ -6,15 +6,16 @@ public class Main {
             public void run() {
                 JFrame frame = new JFrame("Calculadora");
                 calculadora calculadora = new calculadora();
-                frame.setContentPane(calculadora.Calculadora);
+                frame.setContentPane(calculadora.calculadora);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);
             }
         });
-
     }
-}
+    }
+
+
 
 
 

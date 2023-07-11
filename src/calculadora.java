@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class calculadora {
-    public JPanel Calculadora;
+    public JPanel calculadora;
     private JTextField txtDisplay;
     private JButton botonresta;
     private JButton botonreset;
@@ -85,16 +85,27 @@ public class calculadora {
         botonraiz.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String numeroIngresado = txtDisplay.getText();
+                if (numeroIngresado.isEmpty()) {
+                    JOptionPane.showMessageDialog(calculadora.this.calculadora, "Ingrese un valor válido para calcular la raíz cuadrada", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
 
-                double numero = Double.parseDouble(txtDisplay.getText());
+                double numero = Double.parseDouble(numeroIngresado);
+                if (numero < 0) {
+                    JOptionPane.showMessageDialog(calculadora.this.calculadora, "Operación no permitida: Raíz cuadrada de un número negativo", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
                 double resultado = Math.sqrt(numero);
                 txtDisplay.setText(String.valueOf(resultado));
 
                 operacionActual = "sqrt(" + numero + ")";
                 operacionCompleta = operacionActual;
                 numerosLabel.setText(operacionCompleta);
-
             }
+
+
 
         });
 
@@ -183,12 +194,11 @@ public class calculadora {
             @Override
             public void actionPerformed(ActionEvent e) {
                 txtDisplay.setText("");
-                numerosIngresados = "";
                 operacionActual = "";
                 operacionCompleta = "";
-                actualizarNumerosIngresados();
-
+                numerosLabel.setText("");
             }
+
         });
 
         num7.addActionListener(new ActionListener() {
@@ -361,8 +371,14 @@ public class calculadora {
                 actualizarNumerosIngresados();
                 a = Double.parseDouble(numeroIngresado);
                 op = "+";
-
-
+                if (!numeroIngresado.isEmpty()) {
+                    a = Double.parseDouble(numeroIngresado);
+                    operacionActual += numeroIngresado + " + ";
+                    operacionCompleta = operacionActual;
+                    numerosLabel.setText(operacionCompleta);
+                    txtDisplay.setText("");
+                    op = "+";
+                }
                 }
         });
         botonresta.addActionListener(new ActionListener() {
@@ -378,6 +394,14 @@ public class calculadora {
                 actualizarNumerosIngresados();
                 a = Double.parseDouble(numeroIngresado);
                 op = "-";
+                if (!numeroIngresado.isEmpty()) {
+                    a = Double.parseDouble(numeroIngresado);
+                    operacionActual += numeroIngresado + " - ";
+                    operacionCompleta = operacionActual;
+                    numerosLabel.setText(operacionCompleta);
+                    txtDisplay.setText("");
+                    op = "-";
+                }
 
             }
         });
@@ -395,11 +419,21 @@ public class calculadora {
                 a = Double.parseDouble(numeroIngresado);
                 op = "*";
 
+                if (!numeroIngresado.isEmpty()) {
+                a = Double.parseDouble(numeroIngresado);
+                operacionActual += numeroIngresado + " * ";
+                operacionCompleta = operacionActual;
+                numerosLabel.setText(operacionCompleta);
+                txtDisplay.setText("");
+                op = "*";
             }
+            }
+
         });
         botondiv.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 String numeroIngresado = txtDisplay.getText();
                 txtDisplay.setText("");
                 numerosIngresados = "";
@@ -410,6 +444,14 @@ public class calculadora {
                 actualizarNumerosIngresados();
                 a = Double.parseDouble(numeroIngresado);
                 op = "/";
+                if (!numeroIngresado.isEmpty()) {
+                    a = Double.parseDouble(numeroIngresado);
+                    operacionActual += numeroIngresado + " / ";
+                    operacionCompleta = operacionActual;
+                    numerosLabel.setText(operacionCompleta);
+                    txtDisplay.setText("");
+                    op = "/";
+                }
 
             }
         });
@@ -431,6 +473,11 @@ public class calculadora {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String numeroIngresado = txtDisplay.getText();
+                if (numeroIngresado.isEmpty()) {
+                    JOptionPane.showMessageDialog(calculadora.this.calculadora, "Ingrese un valor válido para el segundo operando", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
                 b = Double.parseDouble(numeroIngresado);
 
                 if (op.equals("+")) {
@@ -440,6 +487,10 @@ public class calculadora {
                 } else if (op.equals("*")) {
                     resultado = a * b;
                 } else if (op.equals("/")) {
+                    if (b == 0) {
+                        JOptionPane.showMessageDialog(calculadora.this.calculadora, "Operación no permitida: División entre cero", "Error", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
                     resultado = a / b;
                 } else if (op.equals("^")) {
                     resultado = Math.pow(a, b);
@@ -450,6 +501,7 @@ public class calculadora {
                 operacionCompleta = "";
                 numerosLabel.setText("");
             }
+
     });
 
 }
@@ -462,4 +514,6 @@ public class calculadora {
     }
 
 }
+
+
 
