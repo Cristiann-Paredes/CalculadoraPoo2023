@@ -204,135 +204,134 @@ public class calculadora {
         num7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            String numerosIngresados = num7.getText();
-            if (!calculadora.this.numerosIngresados.contains(numerosIngresados)) {
-                txtDisplay.setText(txtDisplay.getText() + numerosIngresados);
-                calculadora.this.numerosIngresados += numerosIngresados;
-                operacionActual += numerosIngresados;
-                operacionCompleta += numerosIngresados;
-                actualizarNumerosIngresados();
+                String numeroIngresado = txtDisplay.getText();
+                if (!numeroIngresado.isEmpty()) {
+                    actualizarNumerosIngresados(numeroIngresado + num7.getText());
+                } else {
+                    actualizarNumerosIngresados(num7.getText());
+                }
             }
-        }
+
 
         });
         num8.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            String numeroIngresado = num8.getText();
-            if (!numerosIngresados.contains(numeroIngresado)) {
-                txtDisplay.setText(txtDisplay.getText() + numeroIngresado);
-                numerosIngresados += numeroIngresado;
-                operacionActual += numeroIngresado;
-                operacionCompleta += numeroIngresado;
-                actualizarNumerosIngresados();
+                String numeroIngresado = txtDisplay.getText();
+                if (!numeroIngresado.isEmpty()) {
+                    actualizarNumerosIngresados(numeroIngresado + num8.getText());
+                } else {
+                    actualizarNumerosIngresados(num8.getText());
+                }
             }
-        }
+
 
         });
         num9.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            String numeroIngresado = num9.getText();
-            if (!numerosIngresados.contains(numeroIngresado)) {
-                txtDisplay.setText(txtDisplay.getText() + numeroIngresado);
-                numerosIngresados += numeroIngresado;
-                operacionActual += numeroIngresado;
-                operacionCompleta += numeroIngresado;
-                actualizarNumerosIngresados();
-            }
+                String numeroIngresado = txtDisplay.getText();
+                if (!numeroIngresado.isEmpty()) {
+                    actualizarNumerosIngresados(numeroIngresado + num9.getText());
+                } else {
+                    actualizarNumerosIngresados(num9.getText());
+                }
+
         }
         });
         num4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            String numeroIngresado = num4.getText();
-            if (!numerosIngresados.contains(numeroIngresado)) {
-                txtDisplay.setText(txtDisplay.getText() + numeroIngresado);
-                numerosIngresados += numeroIngresado;
-                operacionActual += numeroIngresado;
-                operacionCompleta += numeroIngresado;
-                actualizarNumerosIngresados();
+                String numeroIngresado = txtDisplay.getText();
+                if (!numeroIngresado.isEmpty()) {
+                    actualizarNumerosIngresados(numeroIngresado + num4.getText());
+                } else {
+                    actualizarNumerosIngresados(num4.getText());
+                }
             }
-        }
+
 
         });
         num5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            String numeroIngresado = num5.getText();
-            if (!numerosIngresados.contains(numeroIngresado)) {
-                txtDisplay.setText(txtDisplay.getText() + numeroIngresado);
-                numerosIngresados += numeroIngresado;
-                operacionActual += numeroIngresado;
-                operacionCompleta += numeroIngresado;
-                actualizarNumerosIngresados();
+                String numeroIngresado = txtDisplay.getText();
+                if (!numeroIngresado.isEmpty()) {
+                    actualizarNumerosIngresados(numeroIngresado + num5.getText());
+                } else {
+                    actualizarNumerosIngresados(num5.getText());
+                }
             }
-            }
+
         });
         num6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String numeroIngresado = num6.getText();
-                txtDisplay.setText(txtDisplay.getText() + numeroIngresado);
-                numerosIngresados += numeroIngresado;
-                operacionActual += numeroIngresado;
-                actualizarNumerosIngresados();;
+                String numeroIngresado = txtDisplay.getText();
+                if (!numeroIngresado.isEmpty()) {
+                    actualizarNumerosIngresados(numeroIngresado + num6.getText());
+                } else {
+                    actualizarNumerosIngresados(num6.getText());
+                }
             }
+
         });
         num1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            String numeroIngresado = num1.getText();
-            if (!numerosIngresados.contains(numeroIngresado)) {
-                txtDisplay.setText(txtDisplay.getText() + numeroIngresado);
-                numerosIngresados += numeroIngresado;
-                operacionActual += numeroIngresado;
-                operacionCompleta += numeroIngresado;
-                actualizarNumerosIngresados();
+                String numeroIngresado = txtDisplay.getText();
+                if (!numeroIngresado.isEmpty()) {
+                    actualizarNumerosIngresados(numeroIngresado + num1.getText());
+                } else {
+                    actualizarNumerosIngresados(num1.getText());
+                }
             }
-        }
+
+
 
         });
         num2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String numeroIngresado = num2.getText();
-                if (!numerosIngresados.contains(numeroIngresado)) {
-                    txtDisplay.setText(txtDisplay.getText() + numeroIngresado);
-                    numerosIngresados += numeroIngresado;
-                    operacionActual += numeroIngresado;
-                    operacionCompleta += numeroIngresado;
-                    actualizarNumerosIngresados();
+                String numeroIngresado = txtDisplay.getText();
+                if (!numeroIngresado.isEmpty()) {
+                    actualizarNumerosIngresados(numeroIngresado + num2.getText());
+                } else {
+                    actualizarNumerosIngresados(num2.getText());
                 }
-
             }
+
+
         });
         num3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String numeroIngresado = num3.getText();
-                txtDisplay.setText(txtDisplay.getText() + numeroIngresado);
-                numerosIngresados += numeroIngresado;
-                operacionActual += numeroIngresado;
-                actualizarNumerosIngresados();
+                String numeroIngresado = txtDisplay.getText();
+                if (!numeroIngresado.isEmpty()) {
+                    actualizarNumerosIngresados(numeroIngresado + num3.getText());
+                } else {
+                    actualizarNumerosIngresados(num3.getText());
+                }
+
             }
         });
         num00.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String numeroIngresado = num00.getText();
-                txtDisplay.setText(txtDisplay.getText() + numeroIngresado);
-                numerosIngresados += numeroIngresado;
-                operacionActual += numeroIngresado;
-                actualizarNumerosIngresados();
+                actualizarNumerosIngresados(num00.getText());
             }
         });
         num0.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                txtDisplay.setText(txtDisplay.getText()+ num0.getText());
-
+                String numeroIngresado = txtDisplay.getText();
+                if (!numeroIngresado.isEmpty()) {
+                    actualizarNumerosIngresados(numeroIngresado + num0.getText());
+                } else {
+                    actualizarNumerosIngresados(num0.getText());
+                }
             }
+
         });
         button16.addActionListener(new ActionListener() {
             @Override
@@ -362,41 +361,26 @@ public class calculadora {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String numeroIngresado = txtDisplay.getText();
-                txtDisplay.setText("");
-                numerosIngresados = "";
-                operacionActual = "";
-                operacionCompleta = "";
-                operacionActual += numeroIngresado + " + ";
-                operacionCompleta += numeroIngresado + " + ";
-                actualizarNumerosIngresados();
-                a = Double.parseDouble(numeroIngresado);
-                op = "+";
                 if (!numeroIngresado.isEmpty()) {
+                    actualizarNumerosIngresados(numeroIngresado);
                     a = Double.parseDouble(numeroIngresado);
-                    operacionActual += numeroIngresado + " + ";
+                    operacionActual += " + ";
                     operacionCompleta = operacionActual;
                     numerosLabel.setText(operacionCompleta);
                     txtDisplay.setText("");
                     op = "+";
                 }
-                }
+            }
+
         });
         botonresta.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String numeroIngresado = txtDisplay.getText();
-                txtDisplay.setText("");
-                numerosIngresados = "";
-                operacionActual = "";
-                operacionCompleta = "";
-                operacionActual += numeroIngresado + " - ";
-                operacionCompleta += numeroIngresado + " - ";
-                actualizarNumerosIngresados();
-                a = Double.parseDouble(numeroIngresado);
-                op = "-";
                 if (!numeroIngresado.isEmpty()) {
+                    actualizarNumerosIngresados(numeroIngresado);
                     a = Double.parseDouble(numeroIngresado);
-                    operacionActual += numeroIngresado + " - ";
+                    operacionActual += " - ";
                     operacionCompleta = operacionActual;
                     numerosLabel.setText(operacionCompleta);
                     txtDisplay.setText("");
@@ -409,23 +393,14 @@ public class calculadora {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String numeroIngresado = txtDisplay.getText();
-                txtDisplay.setText("");
-                numerosIngresados = "";
-                operacionActual = "";
-                operacionCompleta = "";
-                operacionActual += numeroIngresado + " * ";
-                operacionCompleta += numeroIngresado + " * ";
-                actualizarNumerosIngresados();
-                a = Double.parseDouble(numeroIngresado);
-                op = "*";
-
                 if (!numeroIngresado.isEmpty()) {
-                a = Double.parseDouble(numeroIngresado);
-                operacionActual += numeroIngresado + " * ";
-                operacionCompleta = operacionActual;
-                numerosLabel.setText(operacionCompleta);
-                txtDisplay.setText("");
-                op = "*";
+                    actualizarNumerosIngresados(numeroIngresado);
+                    a = Double.parseDouble(numeroIngresado);
+                    operacionActual += " * ";
+                    operacionCompleta = operacionActual;
+                    numerosLabel.setText(operacionCompleta);
+                    txtDisplay.setText("");
+                    op = "*";
             }
             }
 
@@ -435,18 +410,11 @@ public class calculadora {
             public void actionPerformed(ActionEvent e) {
 
                 String numeroIngresado = txtDisplay.getText();
-                txtDisplay.setText("");
-                numerosIngresados = "";
-                operacionActual = "";
-                operacionCompleta = "";
-                operacionActual += numeroIngresado + " / ";
-                operacionCompleta += numeroIngresado + " / ";
-                actualizarNumerosIngresados();
-                a = Double.parseDouble(numeroIngresado);
-                op = "/";
+
                 if (!numeroIngresado.isEmpty()) {
+                    actualizarNumerosIngresados(numeroIngresado);
                     a = Double.parseDouble(numeroIngresado);
-                    operacionActual += numeroIngresado + " / ";
+                    operacionActual += " / ";
                     operacionCompleta = operacionActual;
                     numerosLabel.setText(operacionCompleta);
                     txtDisplay.setText("");
@@ -473,46 +441,40 @@ public class calculadora {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String numeroIngresado = txtDisplay.getText();
-                if (numeroIngresado.isEmpty()) {
-                    JOptionPane.showMessageDialog(calculadora.this.calculadora, "Ingrese un valor válido para el segundo operando", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
+                if (!numeroIngresado.isEmpty()) {
+                    double b = Double.parseDouble(numeroIngresado);
+                    double resultado = switch (op) {
+                        case "+" -> a + b;
+                        case "-" -> a - b;
+                        case "*" -> a * b;
+                        case "/" -> a / b;
+                        case "√" -> Math.sqrt(b);
+                        case "^" -> Math.pow(a, b);
+                        default -> 0.0;
+                    };
+
+                    txtDisplay.setText(String.valueOf(resultado));
+                    operacionActual = "";
+                    operacionCompleta = "";
+                    numerosLabel.setText("");
+                    a = 0.0; // Reiniciar a cero para permitir nuevas operaciones
                 }
-
-                b = Double.parseDouble(numeroIngresado);
-
-                if (op.equals("+")) {
-                    resultado = a + b;
-                } else if (op.equals("-")) {
-                    resultado = a - b;
-                } else if (op.equals("*")) {
-                    resultado = a * b;
-                } else if (op.equals("/")) {
-                    if (b == 0) {
-                        JOptionPane.showMessageDialog(calculadora.this.calculadora, "Operación no permitida: División entre cero", "Error", JOptionPane.ERROR_MESSAGE);
-                        return;
-                    }
-                    resultado = a / b;
-                } else if (op.equals("^")) {
-                    resultado = Math.pow(a, b);
-                }
-
-                txtDisplay.setText(String.valueOf(resultado));
-                operacionActual = "";
-                operacionCompleta = "";
-                numerosLabel.setText("");
             }
-
     });
 
 }
 
-    private void actualizarNumerosIngresados() {
-        operacionCompleta+=numerosIngresados;
-        operacionActual+=numerosIngresados;
-        numerosLabel.setText(operacionCompleta+numerosIngresados);
 
+    private void actualizarNumerosIngresados(String numero) {
+        if (operacionActual.endsWith(" ")) {
+            operacionActual += numero;
+        } else {
+            operacionActual += numero;
+        }
+        operacionCompleta = operacionActual;
+        numerosLabel.setText(operacionCompleta);
+        txtDisplay.setText(numero);
     }
-
 }
 
 
