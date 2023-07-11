@@ -1,104 +1,327 @@
+//Calculadora
+//Integrantes: Jimenez Martin, Novillo Ismael, Paredes Cristian
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class calculadora {
-    private JPanel Calculadora;
+    public JPanel Calculadora;
     private JTextField txtDisplay;
-    private JButton button1;
-    private JButton ACButton;
-    private JButton button3;
-    private JButton xButton;
-    private JButton button5;
+    private JButton botonresta;
+    private JButton botonreset;
+    private JButton botonigual;
+    private JButton botonmulti;
+    private JButton botondiv;
     private JButton button6;
-    private JButton a7Button;
-    private JButton a4Button;
-    private JButton a1Button;
-    private JButton a00Button;
-    private JButton button11;
-    private JButton a8Button;
-    private JButton a5Button;
-    private JButton a2Button;
-    private JButton a0Button;
+    private JButton num7;
+    private JButton num4;
+    private JButton num1;
+    private JButton num0;
+    private JButton botonsuma;
+    private JButton num8;
+    private JButton num5;
+    private JButton num2;
+    private JButton num00;
     private JButton button16;
-    private JButton a9Button;
-    private JButton a6Button;
-    private JButton a3Button;
-    private JButton button20;
+    private JButton num9;
+    private JButton num6;
+    private JButton num3;
+    private JButton botonPunto;
+    private JButton botonSeno;
+    private JButton botoncoseno;
+    private JButton botonTangente;
+    private JButton botonPotencia;
+    private JLabel numerosLabel;
+    private JButton botonraiz;
 
     double a,b,resultado;
     String op;
+    private String numerosIngresados = "";
+    private String operacionActual = "";
+    private String operacionCompleta = "";
     public calculadora() {
-        ACButton.addActionListener(new ActionListener() {
+        JButton[] numeros = new JButton[10];
+        for (int i = 0; i < 10; i++) {
+            numeros[i] = new JButton(String.valueOf(i));
+        }
+
+// ActionListener para el botón num1
+        numeros[1].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String numeroIngresado = "1";
+                txtDisplay.setText(txtDisplay.getText() + numeroIngresado);
+            }
+        });
+
+        botonSeno.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String numeroIngresado = txtDisplay.getText();
+                double numero = Double.parseDouble(numeroIngresado);
+                double resultado = Math.sin(Math.toRadians(numero));
+                txtDisplay.setText(String.valueOf(resultado));
+
+                operacionActual = "sin(" + numeroIngresado + ")";
+                operacionCompleta = operacionActual;
+                numerosLabel.setText(operacionCompleta);
+                String valueStr = txtDisplay.getText();
+                if (!valueStr.isEmpty()) {
+                    try {
+                        double value = Double.parseDouble(valueStr);
+                        double radian = Math.toRadians(value);
+                        double result = Math.sin(radian);
+                        txtDisplay.setText(String.valueOf(result));
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(null, "Ingrese un número válido", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ingrese un valor antes de calcular el seno", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+
+
+        });
+        botonraiz.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                double numero = Double.parseDouble(txtDisplay.getText());
+                double resultado = Math.sqrt(numero);
+                txtDisplay.setText(String.valueOf(resultado));
+
+                operacionActual = "sqrt(" + numero + ")";
+                operacionCompleta = operacionActual;
+                numerosLabel.setText(operacionCompleta);
+
+            }
+
+        });
+
+
+        botoncoseno.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String numeroIngresado = txtDisplay.getText();
+                double numero = Double.parseDouble(numeroIngresado);
+                double resultado = Math.cos(Math.toRadians(numero));
+                txtDisplay.setText(String.valueOf(resultado));
+                operacionActual = "cos(" + numeroIngresado + ")";
+                operacionCompleta = operacionActual;
+                numerosLabel.setText(operacionCompleta);
+                String valueStr = txtDisplay.getText();
+                if (!valueStr.isEmpty()) {
+                    try {
+                        double value = Double.parseDouble(valueStr);
+                        double radian = Math.toRadians(value);
+                        double result = Math.cos(radian);
+                        txtDisplay.setText(String.valueOf(result));
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(null, "Ingrese un número válido", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ingrese un valor antes de calcular el coseno", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+
+        botonTangente.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                    String numeroIngresado = txtDisplay.getText();
+                    double numero = Double.parseDouble(numeroIngresado);
+                    double resultado = Math.tan(Math.toRadians(numero));
+                    txtDisplay.setText(String.valueOf(resultado));
+
+                    operacionActual = "tan(" + numeroIngresado + ")";
+                    operacionCompleta = operacionActual;
+                    numerosLabel.setText(operacionCompleta);
+
+                String valueStr = txtDisplay.getText();
+                if (!valueStr.isEmpty()) {
+                    try {
+                        double value = Double.parseDouble(valueStr);
+                        double radian = Math.toRadians(value);
+                        double result = Math.tan(radian);
+                        txtDisplay.setText(String.valueOf(result));
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(null, "Ingrese un número válido", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ingrese un valor antes de calcular la tangente", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+
+        botonPotencia.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String numeroIngresado = txtDisplay.getText();
+                double numero = Double.parseDouble(numeroIngresado);
+                double resultado = Math.pow(numero, 2);
+                txtDisplay.setText(String.valueOf(resultado));
+
+                operacionActual = "(" + numeroIngresado + ")^2";
+                operacionCompleta = operacionActual;
+                numerosLabel.setText(operacionCompleta);
+                String valueStr = txtDisplay.getText();
+                if (!valueStr.isEmpty()) {
+                    try {
+                        a = Double.parseDouble(valueStr);
+                        op = "^";
+                        txtDisplay.setText("");
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(null, "Ingrese un número válido", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ingrese un valor antes de calcular la potencia", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+        botonreset.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 txtDisplay.setText("");
+                numerosIngresados = "";
+                operacionActual = "";
+                operacionCompleta = "";
+                actualizarNumerosIngresados();
+
             }
         });
-        a7Button.addActionListener(new ActionListener() {
+
+        num7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                txtDisplay.setText(txtDisplay.getText()+ a7Button.getText());
+            String numerosIngresados = num7.getText();
+            if (!calculadora.this.numerosIngresados.contains(numerosIngresados)) {
+                txtDisplay.setText(txtDisplay.getText() + numerosIngresados);
+                calculadora.this.numerosIngresados += numerosIngresados;
+                operacionActual += numerosIngresados;
+                operacionCompleta += numerosIngresados;
+                actualizarNumerosIngresados();
+            }
+        }
+
+        });
+        num8.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            String numeroIngresado = num8.getText();
+            if (!numerosIngresados.contains(numeroIngresado)) {
+                txtDisplay.setText(txtDisplay.getText() + numeroIngresado);
+                numerosIngresados += numeroIngresado;
+                operacionActual += numeroIngresado;
+                operacionCompleta += numeroIngresado;
+                actualizarNumerosIngresados();
+            }
+        }
+
+        });
+        num9.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            String numeroIngresado = num9.getText();
+            if (!numerosIngresados.contains(numeroIngresado)) {
+                txtDisplay.setText(txtDisplay.getText() + numeroIngresado);
+                numerosIngresados += numeroIngresado;
+                operacionActual += numeroIngresado;
+                operacionCompleta += numeroIngresado;
+                actualizarNumerosIngresados();
+            }
+        }
+        });
+        num4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            String numeroIngresado = num4.getText();
+            if (!numerosIngresados.contains(numeroIngresado)) {
+                txtDisplay.setText(txtDisplay.getText() + numeroIngresado);
+                numerosIngresados += numeroIngresado;
+                operacionActual += numeroIngresado;
+                operacionCompleta += numeroIngresado;
+                actualizarNumerosIngresados();
+            }
+        }
+
+        });
+        num5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            String numeroIngresado = num5.getText();
+            if (!numerosIngresados.contains(numeroIngresado)) {
+                txtDisplay.setText(txtDisplay.getText() + numeroIngresado);
+                numerosIngresados += numeroIngresado;
+                operacionActual += numeroIngresado;
+                operacionCompleta += numeroIngresado;
+                actualizarNumerosIngresados();
+            }
             }
         });
-        a8Button.addActionListener(new ActionListener() {
+        num6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                txtDisplay.setText(txtDisplay.getText()+ a8Button.getText());
+                String numeroIngresado = num6.getText();
+                txtDisplay.setText(txtDisplay.getText() + numeroIngresado);
+                numerosIngresados += numeroIngresado;
+                operacionActual += numeroIngresado;
+                actualizarNumerosIngresados();;
             }
         });
-        a9Button.addActionListener(new ActionListener() {
+        num1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                txtDisplay.setText(txtDisplay.getText()+ a9Button.getText());
+            String numeroIngresado = num1.getText();
+            if (!numerosIngresados.contains(numeroIngresado)) {
+                txtDisplay.setText(txtDisplay.getText() + numeroIngresado);
+                numerosIngresados += numeroIngresado;
+                operacionActual += numeroIngresado;
+                operacionCompleta += numeroIngresado;
+                actualizarNumerosIngresados();
+            }
+        }
+
+        });
+        num2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String numeroIngresado = num2.getText();
+                if (!numerosIngresados.contains(numeroIngresado)) {
+                    txtDisplay.setText(txtDisplay.getText() + numeroIngresado);
+                    numerosIngresados += numeroIngresado;
+                    operacionActual += numeroIngresado;
+                    operacionCompleta += numeroIngresado;
+                    actualizarNumerosIngresados();
+                }
+
             }
         });
-        a4Button.addActionListener(new ActionListener() {
+        num3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                txtDisplay.setText(txtDisplay.getText()+ a4Button.getText());
+                String numeroIngresado = num3.getText();
+                txtDisplay.setText(txtDisplay.getText() + numeroIngresado);
+                numerosIngresados += numeroIngresado;
+                operacionActual += numeroIngresado;
+                actualizarNumerosIngresados();
             }
         });
-        a5Button.addActionListener(new ActionListener() {
+        num00.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                txtDisplay.setText(txtDisplay.getText()+ a5Button.getText());
+                String numeroIngresado = num00.getText();
+                txtDisplay.setText(txtDisplay.getText() + numeroIngresado);
+                numerosIngresados += numeroIngresado;
+                operacionActual += numeroIngresado;
+                actualizarNumerosIngresados();
             }
         });
-        a6Button.addActionListener(new ActionListener() {
+        num0.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                txtDisplay.setText(txtDisplay.getText()+ a6Button.getText());
-            }
-        });
-        a1Button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                txtDisplay.setText(txtDisplay.getText()+ a1Button.getText());
-            }
-        });
-        a2Button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                txtDisplay.setText(txtDisplay.getText()+ a2Button.getText());
-            }
-        });
-        a3Button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                txtDisplay.setText(txtDisplay.getText()+ a3Button.getText());
-            }
-        });
-        a0Button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                txtDisplay.setText(txtDisplay.getText()+ a0Button.getText());
-            }
-        });
-        a00Button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                txtDisplay.setText(txtDisplay.getText()+ a00Button.getText());
+                txtDisplay.setText(txtDisplay.getText()+ num0.getText());
+
             }
         });
         button16.addActionListener(new ActionListener() {
@@ -116,46 +339,78 @@ public class calculadora {
                 }
             }
         });
-        button20.addActionListener(new ActionListener() {
+        botonPunto.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(!txtDisplay.getText().contains("."))
                 {
-                    txtDisplay.setText(txtDisplay.getText()+button20.getText());
+                    txtDisplay.setText(txtDisplay.getText()+ botonPunto.getText());
                 }
             }
         });
-        button11.addActionListener(new ActionListener() {
+        botonsuma.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                a=Double.parseDouble(txtDisplay.getText());
-                op="+";
+                String numeroIngresado = txtDisplay.getText();
                 txtDisplay.setText("");
+                numerosIngresados = "";
+                operacionActual = "";
+                operacionCompleta = "";
+                operacionActual += numeroIngresado + " + ";
+                operacionCompleta += numeroIngresado + " + ";
+                actualizarNumerosIngresados();
+                a = Double.parseDouble(numeroIngresado);
+                op = "+";
+
+
+                }
+        });
+        botonresta.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String numeroIngresado = txtDisplay.getText();
+                txtDisplay.setText("");
+                numerosIngresados = "";
+                operacionActual = "";
+                operacionCompleta = "";
+                operacionActual += numeroIngresado + " - ";
+                operacionCompleta += numeroIngresado + " - ";
+                actualizarNumerosIngresados();
+                a = Double.parseDouble(numeroIngresado);
+                op = "-";
 
             }
         });
-        button1.addActionListener(new ActionListener() {
+        botonmulti.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                a=Double.parseDouble(txtDisplay.getText());
-                op="-";
+                String numeroIngresado = txtDisplay.getText();
                 txtDisplay.setText("");
+                numerosIngresados = "";
+                operacionActual = "";
+                operacionCompleta = "";
+                operacionActual += numeroIngresado + " * ";
+                operacionCompleta += numeroIngresado + " * ";
+                actualizarNumerosIngresados();
+                a = Double.parseDouble(numeroIngresado);
+                op = "*";
+
             }
         });
-        xButton.addActionListener(new ActionListener() {
+        botondiv.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                a=Double.parseDouble(txtDisplay.getText());
-                op="*";
+                String numeroIngresado = txtDisplay.getText();
                 txtDisplay.setText("");
-            }
-        });
-        button5.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                a=Double.parseDouble(txtDisplay.getText());
-                op="/";
-                txtDisplay.setText("");
+                numerosIngresados = "";
+                operacionActual = "";
+                operacionCompleta = "";
+                operacionActual += numeroIngresado + " / ";
+                operacionCompleta += numeroIngresado + " / ";
+                actualizarNumerosIngresados();
+                a = Double.parseDouble(numeroIngresado);
+                op = "/";
+
             }
         });
         button6.addActionListener(new ActionListener() {
@@ -172,37 +427,39 @@ public class calculadora {
 
             }
         });
-        button3.addActionListener(new ActionListener() {
+        botonigual.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                b=Double.parseDouble(txtDisplay.getText());
-                if (op=="+")
-                {
-                    resultado= a+b;
-                    txtDisplay.setText(String.valueOf(resultado));
+                String numeroIngresado = txtDisplay.getText();
+                b = Double.parseDouble(numeroIngresado);
+
+                if (op.equals("+")) {
+                    resultado = a + b;
+                } else if (op.equals("-")) {
+                    resultado = a - b;
+                } else if (op.equals("*")) {
+                    resultado = a * b;
+                } else if (op.equals("/")) {
+                    resultado = a / b;
+                } else if (op.equals("^")) {
+                    resultado = Math.pow(a, b);
                 }
-                else if (op =="-")
-                {
-                    resultado= a-b;
-                    txtDisplay.setText(String.valueOf(resultado));
-                }else if (op =="*")
-                {
-                    resultado= a*b;
-                    txtDisplay.setText(String.valueOf(resultado));
-                }else if (op =="/")
-                {
-                    resultado= a/b;
-                    txtDisplay.setText(String.valueOf(resultado));
-                }
+
+                txtDisplay.setText(String.valueOf(resultado));
+                operacionActual = "";
+                operacionCompleta = "";
+                numerosLabel.setText("");
             }
-        });
+    });
+
+}
+
+    private void actualizarNumerosIngresados() {
+        operacionCompleta+=numerosIngresados;
+        operacionActual+=numerosIngresados;
+        numerosLabel.setText(operacionCompleta+numerosIngresados);
+
     }
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("calculadora");
-        frame.setContentPane(new calculadora().Calculadora);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-    }
 }
+
